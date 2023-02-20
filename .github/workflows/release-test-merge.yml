@@ -10,14 +10,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: npm install
         run: npm ci
-      - name: Run Test
+      - name: test
         run: npm run test
-      - name: Merge to Release
-        if: success()
-        uses: pullreminders/merge-action@v1.7.1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          method: merge
-          head: develop
-          base: release
-          commit_message: Merge from develop to release
