@@ -8,10 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm ci && npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: npm install
+        run: npm ci
+      - name: Run Test
+        run: npm run test
+      - name: Merge to Release
+        if: success()
+        uses: pullreminders/merge-action@v1.7.1
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_URLIAR }}'
-          channelId: live
-          projectId: urliar
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          method: merge
+          head: develop
+          base: release
+          commit_message: Merge from develop to release
