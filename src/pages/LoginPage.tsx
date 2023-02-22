@@ -18,13 +18,13 @@ const LoginPage: React.FC = () => {
           <input
             type="text"
             className="w-[330px] h-[40px] rounded-[10px] my-[10px] px-[10px]"
-            placeholder="이메일"
+            placeholder="email"
           />
           {/* 비밀번호 입력 창 */}
           <input
             type="password"
             className="w-[330px] h-[40px] rounded-[10px] my-[10px] px-[10px]"
-            placeholder="비밀번호"
+            placeholder="password"
           />
           {/* 로그인 버튼 */}
           <button
