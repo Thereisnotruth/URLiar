@@ -4,16 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 
 import SignUpPage from './SignUpPage';
 
-describe('LoginPage Component', () => {
-  it('should navigate to register page when register button is clicked', () => {
+describe('SignUpPage', () => {
+  it('should navigate to main page when return button is clicked', () => {
     // Render component
     render(<SignUpPage />, { wrapper: BrowserRouter });
 
     // Find register button and click it
-    const registerButton = screen.getByText('회원가입');
-    fireEvent.click(registerButton);
+    const returnButton = screen.getByRole('moveBack');
+    fireEvent.click(returnButton);
 
     // Assert that browser navigated to the expected URL
-    expect(window.location.pathname).toBe('/register');
+    expect(window.location.pathname).toBe('/');
   });
 });
