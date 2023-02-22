@@ -37,7 +37,7 @@ const LoginPage: React.FC = () => {
           <button
             type="button"
             className="bg-urliar-2 w-[330px] h-[50px] rounded-[10px] text-[20px] text-[#ffffff] my-[10px]"
-            onClick={() => navigate('/register')}
+            onClick={() => navigate('/signup')}
           >
             회원가입
           </button>
