@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { ReactComponent as Logo } from '../assets/images/liar.svg';
 
 const LoginPage: React.FC = () => {
@@ -7,13 +8,13 @@ const LoginPage: React.FC = () => {
   return (
     <div className="bg-urliar-4 h-100 flex items-center">
       {/* 로그인 페이지 */}
-      <div className="bg-urliar-1 w-[500px] h-[520px] mx-auto rounded-[10px]">
+      <div className="bg-urliar-1 w-[500px] mx-auto rounded-[10px] p-[20px]">
         {/* 로그인 창 */}
         <div className="fill-urliar-2 h-[85px]">
           <Logo className="w-[100%]" />
         </div>
         {/* 로그인 폼 */}
-        <form className="bg-urliar-3 w-[400px] h-[380px] mx-auto rounded-[10px] p-[20px]">
+        <form className="bg-urliar-3 w-[400px] mx-auto rounded-[10px] p-[20px]">
           {/* 이메일 입력 창 */}
           <input
             type="text"

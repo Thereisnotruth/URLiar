@@ -22,7 +22,7 @@ describe('SignUpPage', () => {
 
     const email = screen.getByPlaceholderText('email');
     const pw = screen.getByPlaceholderText('password');
-    const pwChk = screen.getByPlaceholderText('password check');
+    const pwChk = screen.getByPlaceholderText('verify password');
     const nickname = screen.getByPlaceholderText('nickname');
     const button = screen.getByRole('button', {
       name: '회원가입',
@@ -42,7 +42,7 @@ describe('SignUpPage', () => {
 
     const email = screen.getByPlaceholderText('email');
     const pw = screen.getByPlaceholderText('password');
-    const pwChk = screen.getByPlaceholderText('password check');
+    const pwChk = screen.getByPlaceholderText('verify password');
     const nickname = screen.getByPlaceholderText('nickname');
     const button = screen.getByRole('button', {
       name: '회원가입',
