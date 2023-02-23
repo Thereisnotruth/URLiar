@@ -7,9 +7,9 @@ const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   return (
     <div className="bg-urliar-4 h-100 flex items-center">
-      {/* 로그인 페이지 */}
+      {/* 로그인 창 */}
       <div className="bg-urliar-1 w-[500px] mx-auto rounded-[10px] p-[20px]">
-        {/* 로그인 창 */}
+        {/* 로고 */}
         <div className="fill-urliar-2 h-[85px]">
           <Logo className="w-[100%]" />
         </div>
