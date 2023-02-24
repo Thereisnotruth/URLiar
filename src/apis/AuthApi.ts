@@ -1,10 +1,44 @@
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   updateProfile,
   User,
 } from 'firebase/auth';
 
 import { firebaseAuth } from '../utils/firebase';
+
+export const doLogin = async (email: string, password: string) => {
+  try {
+    const response = await signInWithEmailAndPassword(
+      firebaseAuth,
+      email,
+      password
+    );
+    return {
+      statusCode: 200,
+      message: 'SUCCESS',
+      data: response,
+    };
+  } catch (err: any) {
+    switch (err.code) {
+      case 'auth/wrong-password':
+        return {
+          statusCode: 401,
+          message: 'WRONG_PASSWORD',
+        };
+      case 'auth/user-disabled':
+        return {
+          statusCode: 403,
+          message: 'USER_DISABLED',
+        };
+      case 'auth/user-not-found':
+        return {
+          statusCode: 404,
+          message: 'USER_NOT_FOUND',
+        };
+    }
+  }
+};
 
 export const doSignUp = async (email: string, password: string) => {
   try {

@@ -2,7 +2,12 @@ import React from 'react';
 
 import { ReactComponent as Logo } from '../assets/images/liar.svg';
 
-const LoginPage: React.FC<any> = ({ navigate, handleLogin }) => {
+const LoginPage: React.FC<any> = ({
+  navigate,
+  handleLogin,
+  setEmail,
+  setPassword,
+}) => {
   return (
     <div className="bg-urliar-4 h-100 flex items-center">
       {/* 로그인 창 */}
@@ -21,12 +26,14 @@ const LoginPage: React.FC<any> = ({ navigate, handleLogin }) => {
             type="text"
             className="w-[330px] h-[40px] rounded-[10px] my-[10px] px-[10px]"
             placeholder="email"
+            onChange={({ target: { value } }) => setEmail(value)}
           />
           {/* 비밀번호 입력 창 */}
           <input
             type="password"
             className="w-[330px] h-[40px] rounded-[10px] my-[10px] px-[10px]"
             placeholder="password"
+            onChange={({ target: { value } }) => setPassword(value)}
           />
           {/* 로그인 버튼 */}
           <button

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import SignUpPage from '../pages/SignUpPage';
-import useSignUpViewModel from '../viewmodels/SignUpViewModel';
+import useAuthViewModel from '../viewmodels/AuthViewModel';
 
 const SignUpContainer = () => {
   // 이메일
@@ -15,7 +15,7 @@ const SignUpContainer = () => {
   const [nickname, setNickname] = useState<string>('');
 
   // View Model의 함수
-  const { signUp } = useSignUpViewModel();
+  const { signUp } = useAuthViewModel();
 
   // 페이지 이동을 위한 hook
   const navigate = useNavigate();
