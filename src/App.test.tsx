@@ -12,6 +12,6 @@ describe('App Component', () => {
     fireEvent.click(registerButton);
 
     // Assert that browser navigated to the expected URL
-    expect(window.location.pathname).toBe('/register');
+    expect(window.location.pathname).toBe('/signup');
   });
 });
