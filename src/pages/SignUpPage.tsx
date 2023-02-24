@@ -3,20 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 
 import { ReactComponent as Logo } from '../assets/images/liar.svg';
-import authReducer from '../reducers/authReducer';
 
-const SignUpPage = () => {
-  const [email, setEmail] = useState<string>('');
-  const [pw, setPw] = useState<string>('');
-  const [pwChk, setPwChk] = useState<string>('');
-  const [nickname, setNickname] = useState<string>('');
-
-  const navigate = useNavigate();
-
-  const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-  };
-
+const SignUpPage = ({
+  email,
+  pw,
+  pwChk,
+  nickname,
+  setEmail,
+  setPw,
+  setPwChk,
+  setNickname,
+  moveBack,
+  handleSignUp,
+}: any) => {
   return (
     <div className="bg-urliar-4 h-100 flex items-center">
       {/* 회원가입 창 */}
@@ -26,7 +25,7 @@ const SignUpPage = () => {
           type="button"
           role="moveBack"
           className="absolute w-[36px] h-[36px] rounded-[50%] bg-urliar-3 text-[#ffffff] text-[28px] flex justify-center items-center"
-          onClick={() => navigate('/')}
+          onClick={moveBack}
         >
           <AiOutlineArrowLeft />
         </button>
