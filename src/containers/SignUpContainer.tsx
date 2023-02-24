@@ -8,9 +8,9 @@ const SignUpContainer = () => {
   // 이메일
   const [email, setEmail] = useState<string>('');
   // 비밀번호
-  const [pw, setPw] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   // 비밀번호 확인
-  const [pwChk, setPwChk] = useState<string>('');
+  const [passwordCheck, setPasswordCheck] = useState<string>('');
   // 닉네임
   const [nickname, setNickname] = useState<string>('');
 
@@ -20,18 +20,13 @@ const SignUpContainer = () => {
   // 페이지 이동을 위한 hook
   const navigate = useNavigate();
 
-  // 로그인 페이지로 이동할 함수
-  const moveBack = () => {
-    navigate('/');
-  };
-
   // 회원가입
   const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
     // 새로고침 방지
     event.preventDefault();
 
     // 회원가입
-    const response = await signUp(email, pw, nickname);
+    const response = await signUp(email, password, nickname);
 
     // 성공시 로그인 페이지로 이동
     if (response?.statusCode === 200) {
@@ -43,14 +38,14 @@ const SignUpContainer = () => {
   return (
     <SignUpPage
       email={email}
-      pw={pw}
-      pwChk={pwChk}
+      password={password}
+      passwordCheck={passwordCheck}
       nickname={nickname}
       setEmail={setEmail}
-      setPw={setPw}
-      setPwChk={setPwChk}
+      setPassword={setPassword}
+      setPasswordCheck={setPasswordCheck}
       setNickname={setNickname}
-      moveBack={moveBack}
+      navigate={navigate}
       handleSignUp={handleSignUp}
     />
   );

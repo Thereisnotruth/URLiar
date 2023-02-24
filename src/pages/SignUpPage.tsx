@@ -4,18 +4,18 @@ import { AiOutlineArrowLeft } from 'react-icons/ai';
 
 import { ReactComponent as Logo } from '../assets/images/liar.svg';
 
-const SignUpPage = ({
+const SignUpPage: React.FC<any> = ({
   email,
-  pw,
-  pwChk,
+  password,
+  passwordCheck,
   nickname,
   setEmail,
-  setPw,
-  setPwChk,
+  setPassword,
+  setPasswordCheck,
   setNickname,
-  moveBack,
+  navigate,
   handleSignUp,
-}: any) => {
+}) => {
   return (
     <div className="bg-urliar-4 h-100 flex items-center">
       {/* 회원가입 창 */}
@@ -25,7 +25,7 @@ const SignUpPage = ({
           type="button"
           role="moveBack"
           className="absolute w-[36px] h-[36px] rounded-[50%] bg-urliar-3 text-[#ffffff] text-[28px] flex justify-center items-center"
-          onClick={moveBack}
+          onClick={() => navigate('/')}
         >
           <AiOutlineArrowLeft />
         </button>
@@ -50,17 +50,17 @@ const SignUpPage = ({
             type="password"
             placeholder="password"
             className="w-[330px] h-[40px] rounded-[10px] px-[10px] text-[16px] my-[10px]"
-            onChange={({ target: { value } }) => setPw(value)}
+            onChange={({ target: { value } }) => setPassword(value)}
           />
           {/* 비밀번호 확인 입력 창 */}
           <input
             type="password"
             placeholder="verify password"
             className="w-[330px] h-[40px] rounded-[10px] px-[10px] text-[16px] my-[10px]"
-            onChange={({ target: { value } }) => setPwChk(value)}
+            onChange={({ target: { value } }) => setPasswordCheck(value)}
           />
           {/* 입력한 비밀번호가 서로 다르면 메시지를 띄움 */}
-          {pw === pwChk ? null : (
+          {password === passwordCheck ? null : (
             <div className="text-[#ffffff]">비밀번호가 일치하지 않습니다.</div>
           )}
           {/* 닉네임 입력 창 */}
@@ -74,7 +74,13 @@ const SignUpPage = ({
           <button
             type="submit"
             className="bg-urliar-2 text-[20px] text-[#ffffff] w-[330px] h-[50px] rounded-[10px] my-[10px]"
-            disabled={!email || !pw || !pwChk || !nickname || pw !== pwChk}
+            disabled={
+              !email ||
+              !password ||
+              !passwordCheck ||
+              !nickname ||
+              password !== passwordCheck
+            }
           >
             회원가입
           </button>
